@@ -1,6 +1,8 @@
-# Bland-Altman plots
+# Bland-Altman plots (with proportional bias)
 
-This repository contains code used to analyse bias between measurements using Bland-Altman plots.
+Bland-Altman plots (1983) and their associated analyses can be used to graphically represent and explore the nature and level of agreement on scale ratings made by two judges. We propose this methodology as a useful supplement to traditional reliability analyses used in social sciences such as psychology, especially in cases where data is skewed or truncated and analysts wish to look at rater agreement in isolation. 
+
+This repository contains code used to generate Bland-Altman plots when proportional bias is present (i.e. when linear regression indicates there is a non-constant association between rater differences and rater mean score). In such cases, limits of agreement (LoA) and 95% confidence intervals (CIs) should not be calculated in the traditional manner (Ludbrook, 2010). Instead, hyperbolic LoA and CIs should be calculated using the approximate method supplied by Carkeet (2015) as demonstrated below. 
 
 ## Dependencies
 
@@ -37,3 +39,11 @@ To repeat this exercise simple run through the script
 example.R
 ```
 which will produce some additional plots as you step through each line to demonstrate the method.
+
+## References
+
+Altman, D. G., & Bland, J. M. (1983). Measurement in medicine: The analysis of method comparison studies. Journal of the Royal Statistical Society, 32(3), 307-317. https://doi.org/10.2307/2987937
+
+Carkeet, A. (2015). Exact parametric confidence intervals for Bland-Altman limits of agreement. Optometry and Vision Science, 92(3), 71-80. https://doi.org/10.1097/OPX.000000000000051
+
+Ludbrook, J. (2010). Confidence in Altman–Bland plots: A critical review of the method of differences. Clinical and Experimental Pharmacology and Physiology, 37(2), 143-149. https://doi.org/10.1111/j.1440-1681.2009.05288.x
