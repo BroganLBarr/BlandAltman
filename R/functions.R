@@ -8,7 +8,7 @@
 # measured.  Therefore, the bias gets larger for larger values of the value
 # being measured
 instrument_1 <- function(real_value) {
-  measured_value = real_value + rnorm(1, 0, 1) - runif(1, 0, 0.5 * real_value + 0.02 * real_value ** 2)
+  measured_value = real_value + rnorm(1, 0, 1) - runif(1, 0, 0.5 * real_value + 0.08 * real_value ** 2)
   return(measured_value)
 }
 
