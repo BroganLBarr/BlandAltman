@@ -23,10 +23,10 @@ data <- data.frame(real_data, difference, stringsAsFactors = FALSE)
 
 plot_simple_ci(data)
 
-plot_ci(linear_fit(data), data, "Instrument 1", "Instrument 2")
+plot_ci(linear_fit(data), data, "Rater mean score", "Rater difference")
 
 ggsave(paste0("images/example_linear.png"), height = 5, width = 10)
 
-plot_ci(quadratic_fit(data), data, "Instrument 1", "Instrument 2")
+plot_ci(quadratic_fit(data), data, "Rater mean score", "Rater difference")
 
 ggsave(paste0("images/example_quadratic.png"), height = 5, width = 10)
