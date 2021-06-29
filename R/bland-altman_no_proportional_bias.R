@@ -42,7 +42,7 @@ plot_reliability_no_bias <- function(measured_value_1, measured_value_2, label_1
     theme_bw() +
     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
     theme(plot.caption = element_text(hjust = 0, vjust = -2)) +
-    theme(text = element_text(size=16))
+    theme(text = element_text(size=16, family="serif"))
 
   # Remove the horizontal line at y = 0
   result$layers[[2]] <- NULL
