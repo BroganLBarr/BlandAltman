@@ -108,17 +108,15 @@ plot_paitent_dependency_quadratic <- plot_reliability(
 )
 
 ggarrange(plotlist = list(
-
   plot_therapist_factor,
   plot_paitent_participation_quadratic,
   plot_warmth,
   plot_distress,
   plot_neg_therapist_attitude_quadratic,
   plot_paitent_dependency_quadratic
-
   ),
-  nrow = 3,
-  ncol = 2
+  nrow = 2,
+  ncol = 3
 )
-ggsave("combined_plots.png", width = 14, height = 18)
+ggsave("combined_plots.png", width = 18, height = 10)
 

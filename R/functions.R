@@ -96,9 +96,9 @@ plot_ci <- function(modeled_differences, data, label_1 = "label1", label_2 = "la
     geom_path(aes(x = x, y = modeled_differences - mean_difference_error), data = lines_data, linetype = 3) +
     xlab(label_1) +
     ylab(label_2) +
-    theme(plot.caption = element_text(hjust = 0)) +
     theme_bw() +
-    theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
+    theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
+    theme(plot.caption = element_text(hjust = 0), text = element_text(size=16))
 }
 
 plot_differences <- function(measured_value_1, measured_value_2) {
