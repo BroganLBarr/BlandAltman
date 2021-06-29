@@ -109,9 +109,9 @@ plot_paitent_dependency_quadratic <- plot_reliability(
 
 ggarrange(plotlist = list(
   plot_therapist_factor,
-  plot_paitent_participation_quadratic,
   plot_warmth,
   plot_distress,
+  plot_paitent_participation_quadratic,
   plot_neg_therapist_attitude_quadratic,
   plot_paitent_dependency_quadratic
   ),
