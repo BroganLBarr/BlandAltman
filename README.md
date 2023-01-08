@@ -31,8 +31,8 @@ To demonstrate the methodology we have provided a simple example using synthetic
 
 In the images below we show this data displayed on two Bland-Altman plots, one with a linear fit (upper) and one with a quadratic fit (lower). The values of the best fit parameters will be different for each run since the data is generated at random.
 
-![Example linear](images/example_linear.png)
-![Example quadratic](images/example_quadratic.png)
+![Example linear](images/example_2_with_bias_linear_fit.png)
+![Example quadratic](images/example_2_with_bias_quadratic_fit.png)
 
 To repeat this exercise simple run through the script
 ```

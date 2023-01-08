@@ -120,4 +120,3 @@ ggarrange(plotlist = list(
   heights = c(10, 9)
 )
 ggsave("combined_plots.png", width = 18, height = 10)
-1
