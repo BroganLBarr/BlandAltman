@@ -3,6 +3,7 @@ library(blandr)
 library(ggplot2)
 library(gridExtra)
 library(ggpubr)
+library(irr)
 source("R/functions.R")
 source("R/bland-altman_no_proportional_bias.R")
 source("R/bland-altman_with_proportional_bias.R")
@@ -11,7 +12,7 @@ vtas_range <- c(0, 5)
 vpps_range <- c(1, 5)
 
 reliabilitydata <- read.csv(
-  "Brogan Barr_BEP and CCT _reliabilities_Feb2021.csv"
+  "data.csv"
 )
 
 plot_paitent_factor <- plot_reliability_no_bias(
@@ -32,6 +33,11 @@ plot_therapist_factor <- plot_reliability_no_bias(
   "Therapist Factor"
 )
 
+compute_statistics_no_bias(
+  reliabilitydata$VTAS_TherFac.1,
+  reliabilitydata$VTAS_TherFac.2
+)
+
 
 plot_patient_exploration <- plot_reliability_no_bias(
   reliabilitydata$VPPS_Pt_Exploration.1,
@@ -50,7 +56,6 @@ plot_distress <- plot_reliability_no_bias(
   vpps_range,
   "Patient Distress"
 )
-
 
 plot_hostility <- plot_reliability_no_bias(
   reliabilitydata$VPPS_Pt_Hostility.1,
@@ -87,6 +92,11 @@ plot_paitent_participation_quadratic <- plot_reliability(
   "VPPS Patient Participation Difference",
   vpps_range,
   "Patient Participation"
+)
+
+compute_statistics_no_bias(
+  reliabilitydata$VPPS_Pt_Participation.1,
+  reliabilitydata$VPPS_Pt_Participation.2
 )
 
 plot_neg_therapist_attitude_quadratic <- plot_reliability(
