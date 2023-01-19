@@ -26,7 +26,6 @@ plot_reliability <- function(measured_value_1,
     # save the plot to file here
 }
 
-
 # Fit a straight line through the
 # differences (linear regression)
 #
@@ -67,7 +66,6 @@ quadratic_fit <- function(data) {
         fit$coefficients[[3]] * data$average_value * data$average_value
     return(modelled_difference)
 }
-
 
 # Plot the confidence intervals using the modeled differences
 # compared with the actual measurements
