@@ -29,7 +29,7 @@ print(paste(
 compute_statistics_no_bias(
   reliabilitydata$VTAS_PtFac.1,
   reliabilitydata$VTAS_PtFac.2,
-  "Paitent factor"
+  "Patient factor"
 )
 
 compute_statistics_no_bias(

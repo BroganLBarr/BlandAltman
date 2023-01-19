@@ -2,11 +2,9 @@ compute_icc <- function(measured_value_1, measured_value_2) {
   if (length(measured_value_1) != length(measured_value_2)) {
     stop("Measurements must be the same length")
   }
-  nr <- 2
   ns <- length(measured_value_1)
   average_values <- 0.5 * (measured_value_1 + measured_value_2)
-
-  MSr <- var(average_values) * nr
+  MSr <- var(average_values) * 2
   MSw <- sum((measured_value_1 - measured_value_2)**2) / (2 * ns)
   coeff <- (MSr - MSw) / MSr
   return(coeff)
@@ -15,7 +13,6 @@ compute_icc <- function(measured_value_1, measured_value_2) {
 pad <- function(s, width) {
   str_pad(s, width, side="right")
 }
-
 
 compute_statistics_no_bias <- function(measured_value_1, measured_value_2, subscale) {
   differences <- measured_value_1 - measured_value_2
@@ -31,12 +28,14 @@ compute_statistics_no_bias <- function(measured_value_1, measured_value_2, subsc
     round(mean(differences) + 1.96 * sd(differences), 2)
   )
 
-  # Compute the ICC
+  # Compute the ICC using the irr package to get the lbound and ubound
   icc_values <- icc(
     cbind(measured_value_1, measured_value_2),
     "oneway",
     unit = "average"
   )
+  # Compute the ICC using the function above,
+  # which is specific to the two measurement case
   icc_value <- compute_icc(measured_value_1, measured_value_2)
 
   icc_text <- paste0(
@@ -54,7 +53,6 @@ compute_statistics_no_bias <- function(measured_value_1, measured_value_2, subsc
   cvs <- (2 ** 0.5) * abs(measured_value_1 - measured_value_2) /
     (measured_value_1 + measured_value_2)
   cv_text <- paste0(round(100 * mean(cvs), 0), " %")
-
 
   total_mean <- mean(c(measured_value_1, measured_value_2))
   total_sd <- sd(c(measured_value_1, measured_value_2))
@@ -76,10 +74,6 @@ plot_reliability_no_bias <- function(measured_value_1,
                                      label_2,
                                      range,
                                      filename = NULL) {
-  compute_statistics_no_bias(
-    measured_value_1,
-    measured_value_2
-  )
   values <- blandr.statistics(
     measured_value_1,
     measured_value_2,
@@ -97,6 +91,7 @@ plot_reliability_no_bias <- function(measured_value_1,
     text_position <- 0.9 * range[[2]]
   }
 
+  print(values)
   result <- blandr.draw(
     measured_value_1,
     measured_value_2,
