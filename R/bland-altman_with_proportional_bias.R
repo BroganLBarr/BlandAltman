@@ -1,14 +1,12 @@
-plot_reliability <- function(
-  measured_value_1,
-  measured_value_2,
-  label_1,
-  label_2,
-  range,
-  filename = NULL
-) {
-  average_value = 0.5 * (measured_value_1 + measured_value_2)
+plot_reliability <- function(measured_value_1,
+                             measured_value_2,
+                             label_1,
+                             label_2,
+                             range,
+                             filename = NULL) {
+  average_value <- 0.5 * (measured_value_1 + measured_value_2)
 
-  difference =  measured_value_1 - measured_value_2
+  difference <- measured_value_1 - measured_value_2
 
   data <- data.frame(
     average_value,

@@ -11,7 +11,7 @@ compute_icc <- function(measured_value_1, measured_value_2) {
 }
 
 pad <- function(s, width) {
-  str_pad(s, width, side="right")
+  str_pad(s, width, side = "right")
 }
 
 compute_statistics_no_bias <- function(measured_value_1, measured_value_2, subscale) {
@@ -50,7 +50,7 @@ compute_statistics_no_bias <- function(measured_value_1, measured_value_2, subsc
   rater_1_std <- sd(measured_value_1)
   mean_text <- paste0(pad(round(rater_1_mean, 2), 4), " (", round(rater_1_std, 2), ")")
 
-  cvs <- (2 ** 0.5) * abs(measured_value_1 - measured_value_2) /
+  cvs <- (2**0.5) * abs(measured_value_1 - measured_value_2) /
     (measured_value_1 + measured_value_2)
   cv_text <- paste0(round(100 * mean(cvs), 0), " %")
 
@@ -77,11 +77,9 @@ plot_reliability_no_bias <- function(measured_value_1,
   values <- blandr.statistics(
     measured_value_1,
     measured_value_2,
-    sig.level=0.95,
+    sig.level = 0.95,
     LoA.mode = 1
   )
-  # clean up the display
-  blandr.output.text(measured_value_1, measured_value_2, sig.level = 0.95)
 
   central_point <- 0.5 * (range[[2]] + range[[1]])
 
@@ -91,7 +89,6 @@ plot_reliability_no_bias <- function(measured_value_1,
     text_position <- 0.9 * range[[2]]
   }
 
-  print(values)
   result <- blandr.draw(
     measured_value_1,
     measured_value_2,

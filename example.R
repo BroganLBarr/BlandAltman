@@ -18,7 +18,6 @@ source("R/bland-altman_with_proportional_bias.R")
 number_of_observations <- 300
 real_data <- runif(number_of_observations, 0, 10) # the "real" observation
 
-
 # Create some synthetic measurements with the same, non-biased instrument
 measured_value_1 <- sapply(real_data, instrument_1)
 measured_value_2 <- sapply(real_data, instrument_1)
@@ -47,8 +46,10 @@ difference <-  measured_value_1 - measured_value_2
 plot_differences(measured_value_1, measured_value_2)
 plot_differences_wrt_data(real_data, difference)
 
-# Create a data frame to easily pass the data into functions below
-data <- data.frame(real_data, difference, stringsAsFactors = FALSE)
+# Create a data frame to easily pass the data into functions below.
+# Since we know the real value, we can use that instead of the average of the
+# measurements.
+data <- data.frame(average_value=real_data, difference, stringsAsFactors = FALSE)
 
 # Plot without any fit to the differences
 plot_simple_ci(data)
