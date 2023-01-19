@@ -15,7 +15,7 @@ plot_reliability <- function(measured_value_1,
   )
 
 
-  plot <- plot_ci(linear_fit(data), data, label_1, label_2)
+  plot <- plot_ci(linear_fit(data), data, label_1, label_2, range)
   ggsave(
     paste0("plot_linear_", filename, ".pdf"),
     height = 5,
